@@ -31,6 +31,9 @@ function play(html_cell) {
         updateMasterBoardWinner(board, winner)
     }
 
+    // Update the "Next Player" text
+    document.getElementById("next_player").innerHTML = player;
+
 }
 
 function checkWinner(cells) {
