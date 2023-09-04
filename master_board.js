@@ -76,11 +76,11 @@ function getCellsOfMasterBoard() {
 }
 
 function updateLastCell(last_played_cell) {
-
+    // console.log(last_played_cell)
     let master_cell = document.getElementById(`masterboard_cell${last_played_cell}`)
     let players = ["X", "O"]
     reset_playable()
-    if (players.includes(master_cell.innerHTML)) {
+    if (last_played_cell == 0 || players.includes(master_cell.innerHTML)) {
         last_cell = 0
     } else {
         last_cell = last_played_cell
