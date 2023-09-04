@@ -22,18 +22,14 @@ function play(html_cell) {
 
     if (!cells[cell - 1].innerHTML && (board == last_cell || last_cell == 0)) {
         cells[cell - 1].innerHTML = player;
-        player = (player == "X") ? "O" : "X";
+        swapPlayer()
         updateLastCell(cell)
-    }
 
     let winner = checkWinner(cells);
     if (winner) {
         updateMasterBoardWinner(board, winner)
     }
-
-    // Update the "Next Player" text
-    document.getElementById("next_player").innerHTML = player;
-
+    }
 }
 
 function checkWinner(cells) {

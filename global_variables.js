@@ -2,6 +2,12 @@ var player = "X";
 var last_cell = 0;
 var game_over = false;
 
+function swapPlayer() {
+    player = (player == "X") ? "O" : "X";
+    document.getElementById("next_player").innerHTML = player;
+}
+
+
 function FillTest() {
 
     play(document.getElementById(`board1_cell1`))
