@@ -25,10 +25,10 @@ function play(html_cell) {
         swapPlayer()
         updateLastCell(cell)
 
-    let winner = checkWinner(cells);
-    if (winner) {
-        updateMasterBoardWinner(board, winner)
-    }
+        let winner = checkWinner(cells);
+        if (winner) {
+            updateMasterBoardWinner(board, winner)
+        }
     }
 }
 
@@ -46,3 +46,12 @@ function checkWinner(cells) {
     return null
 }
 
+function getBoardList(board) {
+    let cells = getCellsOfBoard(board);
+    var boardList = []
+
+    for (let cell of cells) {
+        boardList.push(cell.innerHTML)
+    }
+    return boardList
+}

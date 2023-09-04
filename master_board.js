@@ -48,6 +48,27 @@ function createBoard(board_id) {
     `
 }
 
+function getMasterBoardList() {
+    var masterBoardList = []
+
+    for (let cid of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+        let mb_cell = document.getElementById(`masterboard_cell${cid}`)
+        let cell_val = mb_cell.innerHTML
+        if (['X','O'].includes(cell_val)) {
+            masterBoardList.push(cell_val)
+        } else {
+            let boardList = getBoardList(cid)
+            masterBoardList.push(boardList)
+
+        }
+        
+    }
+    return masterBoardList
+
+}
+
+
+
 function updateMasterBoardWinner(board, winner) {
     let master_cell = document.getElementById(`masterboard_cell${board}`)
     master_cell.innerHTML = winner;
