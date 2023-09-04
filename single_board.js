@@ -11,6 +11,9 @@ function getCellsOfBoard(board) {
 function play(html_cell) {
     // debugger;
     console.log(html_cell);
+    if (game_over) {
+        return
+    };
 
     let idstr = html_cell.id.split("_");
     let board = parseInt(idstr[0].replace("board", ""));

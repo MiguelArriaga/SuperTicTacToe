@@ -1,5 +1,7 @@
 var player = "X";
 var last_cell = 0;
+var game_over = false;
+
 function FillTest() {
 
     play(document.getElementById(`board1_cell1`))

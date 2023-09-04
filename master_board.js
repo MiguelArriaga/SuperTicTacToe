@@ -59,6 +59,8 @@ function updateMasterBoardWinner(board, winner) {
         // alert(master_winner + " wins!");
         let winner_msg_p = document.getElementById("winner_message")
         winner_msg_p.innerHTML = `Player ${master_winner} is the winner !`
+        game_over = true;
+        document.getElementById(`masterboard`).classList.add('game_over')
     }
 
 }
