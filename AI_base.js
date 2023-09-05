@@ -12,7 +12,6 @@ function callAI(start_player) {
     let boardList = getMasterBoardList();
     if (ai_id != "human") {
         for (let i = 0; i < 50; i++) {
-            console.log("attempt 1");
             [board, cell] = AIs[ai_id]["Function"](boardList,last_cell, start_player);
             var succeeded = play(document.getElementById(`board${board}_cell${cell}`), silent = true);
             if (succeeded) {
@@ -26,19 +25,19 @@ function callAI(start_player) {
 
 function populateAIs() {
     for (let ptype of ["X", "O"]) {
-        dropdown = document.getElementById(`player${ptype}Dropdown`)
+        let dropdown = document.getElementById(`player${ptype}Dropdown`);
         for (let ai in AIs) {
-            dropdown.innerHTML += `<option id="${ptype}_${ai}" value="${ai}">${AIs[ai]["Name"]}</option>\n`
+            dropdown.innerHTML += `<option id="${ptype}_${ai}" value="${ai}">${AIs[ai]["Name"]}</option>\n`;
         }
         document.getElementById(`${ptype}_${default_AI}`).selected = true;
-        player_AI[ptype] = default_AI
+        player_AI[ptype] = default_AI;
     }
 
 }
 
 function changeAI(dropdown) {
-    let ptype = dropdown.getAttribute("data-ptype")
-    player_AI[ptype] = dropdown.value
-    console.log(`change AI of ${ptype} to ${dropdown.value}`)
-    console.log(player_AI)
+    let ptype = dropdown.getAttribute("data-ptype");
+    player_AI[ptype] = dropdown.value;
+    console.log(`change AI of ${ptype} to ${dropdown.value}`);
+    console.log(player_AI);
 }
