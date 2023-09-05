@@ -2,7 +2,7 @@ const AIs = {
     'human': { 'Name': "Human", "Function": null },
     'random': { 'Name': "Random", "Function": AI_random_bestMove }
 }
-const default_AI = 'random'
+const default_AI = 'human'
 
 
 function callAI(start_player) {
