@@ -1,8 +1,8 @@
 
 
-function startUp() {
+function startUp(popAI = true) {
     createMasterBoard();
-    populateAIs();
+    if (popAI) {populateAIs();}
     // play(document.getElementById(`board1_cell1`))
 }
 
