@@ -43,7 +43,14 @@ function checkWinner(cells) {
             }
         }
     }
+
+    for (cell of cells) {
+        if (!MASTER_CLOSED_BOARD_OPTIONS.includes(cell.innerHTML)) {
     return null
+}
+    }
+
+    return "Tie"
 }
 
 function getBoardList(board) {

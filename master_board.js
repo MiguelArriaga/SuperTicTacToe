@@ -54,7 +54,7 @@ function getMasterBoardList() {
     for (let cid of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
         let mb_cell = document.getElementById(`masterboard_cell${cid}`)
         let cell_val = mb_cell.innerHTML
-        if (['X','O'].includes(cell_val)) {
+        if (MASTER_CLOSED_BOARD_OPTIONS.includes(cell_val)) {
             masterBoardList.push(cell_val)
         } else {
             let boardList = getBoardList(cid)
@@ -100,7 +100,7 @@ function updateLastCell(last_played_cell) {
     // console.log(last_played_cell)
     let master_cell = document.getElementById(`masterboard_cell${last_played_cell}`)
     reset_playable()
-    if (last_played_cell == 0 || ["X", "O"].includes(master_cell.innerHTML)) {
+    if (last_played_cell == 0 || MASTER_CLOSED_BOARD_OPTIONS.includes(master_cell.innerHTML)) {
         last_cell = 0
     } else {
         last_cell = last_played_cell
