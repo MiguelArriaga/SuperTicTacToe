@@ -8,11 +8,13 @@ function getCellsOfBoard(board) {
     return cells
 }
 
-function play(html_cell) {
+function play(html_cell, silent=false) {
+    const curr_player = player
     // debugger;
-    console.log(html_cell);
+    if (!silent) {console.log(html_cell);}
+    
     if (game_over) {
-        return
+        return true
     };
 
     let idstr = html_cell.id.split("_");
@@ -29,7 +31,14 @@ function play(html_cell) {
         if (winner) {
             updateMasterBoardWinner(board, winner)
         }
+        checkMasterWinner()
+
+        if (!game_over) {
+            callAI(player);
+        }
+        return true
     }
+    return false
 }
 
 function checkWinner(cells) {
@@ -46,8 +55,8 @@ function checkWinner(cells) {
 
     for (cell of cells) {
         if (!MASTER_CLOSED_BOARD_OPTIONS.includes(cell.innerHTML)) {
-    return null
-}
+            return null
+        }
     }
 
     return "Tie"

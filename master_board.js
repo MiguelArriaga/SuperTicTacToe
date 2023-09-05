@@ -61,7 +61,7 @@ function getMasterBoardList() {
             masterBoardList.push(boardList)
 
         }
-        
+
     }
     return masterBoardList
 
@@ -73,19 +73,15 @@ function updateMasterBoardWinner(board, winner) {
     let master_cell = document.getElementById(`masterboard_cell${board}`)
     master_cell.innerHTML = winner;
     updateLastCell(last_cell)
-
-    master_cells = getCellsOfMasterBoard()
-    let master_winner = checkWinner(master_cells);
-    if (master_winner) {
-        // alert(master_winner + " wins!");
-        let winner_msg_p = document.getElementById("winner_message")
-        winner_msg_p.innerHTML = `Player ${master_winner} is the winner !`
-        game_over = true;
-        document.getElementById(`masterboard`).classList.add('game_over')
-    }
-
 }
 
+function checkMasterWinner() {
+    let master_cells = getCellsOfMasterBoard()
+    let master_winner = checkWinner(master_cells);
+    if (master_winner) {
+        set_game_over(master_winner)
+    }
+}
 function getCellsOfMasterBoard() {
     var cells = [];
 
@@ -106,7 +102,6 @@ function updateLastCell(last_played_cell) {
         last_cell = last_played_cell
         let cell = document.getElementById(`masterboard_cell${last_cell}`)
         cell.classList.add('playable');
-
     };
 }
 
