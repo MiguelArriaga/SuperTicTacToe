@@ -64,8 +64,29 @@ function AI_getWinner(genericBoard) {
     return "Tie"
 }
 
-function AI_makeMove(MasterBoard, move_board, move_cell, move_player) {
+
+function AI_copyMasterBoard(MasterBoardList) {
+    let newMasterBoard = []
+    board = (bb) => MasterBoardList[bb - 1]
+    cell = (bb, cc) => board(bb)[cc - 1]
+
+    for (b of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+        if (typeof(board(b)) == "string") {
+            newMasterBoard.push(board(b))
+        } else {
+            smallBoard = []
+            for (c of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+                smallBoard.push(cell(b,c))
+            }
+            newMasterBoard.push(smallBoard)
+        }
+    }
+    return newMasterBoard
+}
+
+function AI_makeMove(MasterBoard_prev, move_board, move_cell, move_player) {
     let next_move = move_cell
+    MasterBoard = AI_copyMasterBoard(MasterBoard_prev)
     MasterBoard[move_board - 1][move_cell - 1] = move_player
 
 
@@ -101,3 +122,13 @@ function AI_sampleRandomFromArray(myArray, n_samples = 1) {
     return sampled_items
 }
 
+function AI_sortAbyB(aa, bb) {
+    // Create an array of objects that pairs each name with its corresponding bb value
+    const combined = aa.map((name, index) => ({ name, bb: bb[index] }));
+    
+    // Sort the array of objects by bb in descending order
+    combined.sort((a, b) => b.bb - a.bb);
+    
+    // Extract the sorted names from the array of objects and return them as an array
+    return combined.map(({ name }) => name);
+  }
