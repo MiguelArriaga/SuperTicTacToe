@@ -62,7 +62,7 @@ function run_recusrsive_battle() {
             winner_counts[winr] = 100 * winner_counts[winr] / battle_games;
         }
         
-        let battle_message = `In ${battle_games} games, AI of X (${AIs[player_AI["X"]]["Name"]}) won ${winner_counts["X"]}% of the time against AI of O (${AIs[player_AI["O"]]["Name"]}). X tied ${winner_counts["Tie"]}% and lost ${winner_counts["O"]}%`
+        let battle_message = `In ${battle_games} games between AIs\n    X: ${winner_counts["X"]}% (${AIs[player_AI["X"]]["Name"]})\n    O: ${winner_counts["O"]}% (${AIs[player_AI["O"]]["Name"]})\n    Tie: ${winner_counts["Tie"]}%`
         console.log(battle_message)
         alert(battle_message)
     }
