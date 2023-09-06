@@ -1,9 +1,9 @@
 
 /**
  * 
- * @param {Array[Array[String]]} boardList Is an Array[9], where each element correspons to a board, and can be:
- *                                         (1) "X","O","Tie" - if that board already is closed
- *                                         (2) Array[9] with the moves already played in that board ("X", "O", "")  
+ * @param {Array[Array[String]]} MasterBoardList Is an Array[9], where each element correspons to a board, and can be:
+ *                                               (1) "X","O","Tie" - if that board already is closed
+ *                                               (2) Array[9] with the moves already played in that board ("X", "O", "")  
  * @param {Integer} last_move_cell The cell that the previous player played. The `curr_player` needs to play
  *                                 in the board with this number unless `last_move_cell==0` which means that
  *                                 `curr_player` can play on any empty cell of the board. 
@@ -12,9 +12,9 @@
  *                       position in the master_board (i.e. which small board in the large grid) and `cell`
  *                       is an integer 1-9 corresponding to the position on the selected `board` 
  */
-function AI_random_bestMove(boardList, last_move_cell, curr_player) {
+function AI_random_bestMove(MasterBoardList, last_move_cell, curr_player) {
     // Get possible moves
-    let available_cells = AI_getPossibleMoves(boardList, last_move_cell)
+    let available_cells = AI_getPossibleMoves(MasterBoardList, last_move_cell)
     let rand_elem = Math.floor(Math.random() * available_cells.length);
     return available_cells[rand_elem]
 

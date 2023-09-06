@@ -1,4 +1,4 @@
-function AI_getPossibleMoves(boardList, last_move_cell) {
+function AI_getPossibleMoves(MasterBoardList, last_move_cell) {
     let possible_moves = []
 
     // Check each small board
@@ -6,7 +6,7 @@ function AI_getPossibleMoves(boardList, last_move_cell) {
         // If board is compatible with last_move
         if (board == last_move_cell || last_move_cell == 0) {
             // Get empty cells of that board and add them to the list of possible moves
-            let empty_cells = AI_getEmptyCells(boardList[board - 1])
+            let empty_cells = AI_getEmptyCells(MasterBoardList[board - 1])
             for (let empty_cell of empty_cells) {
                 possible_moves.push([board, empty_cell])
             }
