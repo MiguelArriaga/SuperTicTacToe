@@ -29,3 +29,7 @@ function serializeArray(arr) {
     }
 
 }
+
+function getRange(L){
+    return Array.from({length: L}, (value, index) => index )
+}

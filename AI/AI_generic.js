@@ -79,6 +79,25 @@ function AI_makeMove(MasterBoard, move_board, move_cell, move_player) {
         }
     }
     MasterWinner = AI_getWinner(MasterBoard)
-    return MasterWinner,next_move,MasterBoard
+    return MasterWinner, next_move, MasterBoard
 
 }
+
+function AI_sampleRandomFromArray(myArray, n_samples = 1) {
+    if (n_samples > myArray.length) { n_samples = myArray.length }
+    let available_positions = getRange(myArray.length)
+
+    sampled_items = []
+    for (let s = 0; s < n_samples; s++) {
+        let rand_elem = Math.floor(Math.random() * available_positions.length);
+        sampled_items.push(myArray[available_positions[rand_elem]])
+        available_positions.splice(rand_elem, 1);
+    }
+
+    if (n_samples == 1) {
+        sampled_items = sampled_items[0]
+    }
+
+    return sampled_items
+}
+
