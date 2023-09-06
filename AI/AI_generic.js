@@ -63,3 +63,22 @@ function AI_getWinner(genericBoard) {
     // If there is no winner and there are no more playable moves inside, then the board is a tie
     return "Tie"
 }
+
+function AI_makeMove(MasterBoard, move_board, move_cell, move_player) {
+    let next_move = move_cell
+    MasterBoard[move_board - 1][move_cell - 1] = move_player
+
+
+    for (let board of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+        winner = AI_getWinner(MasterBoard[board - 1])
+        if (winner) {
+            MasterBoard[board - 1] = winner
+            if (move_cell == board) {
+                next_move = 0
+            }
+        }
+    }
+    MasterWinner = AI_getWinner(MasterBoard)
+    return MasterWinner,next_move,MasterBoard
+
+}
