@@ -36,6 +36,9 @@ function swapPlayer() {
     document.getElementById("next_player").innerHTML = player;
 }
 
+function exportBoard() {
+    alert(serializeArray(getMasterBoardList()))
+}
 
 function FillTest() {
     // X Wins

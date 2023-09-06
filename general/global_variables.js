@@ -10,3 +10,22 @@ function reset_globals() {
     last_cell = 0;
     game_over = false;
 }
+
+function serializeArray(arr) {
+    let curr_text = "";
+    if ( typeof(arr) != "string") {
+        curr_text += "[";
+        for (var i = 0; i < arr.length; i++) {
+            curr_text += serializeArray(arr[i]) 
+            if (i < arr.length -1) {
+                curr_text += ", ";
+            }
+        }
+        curr_text += "]";
+        return curr_text
+    }
+    else  {
+        return `"` + arr + `"`;
+    }
+
+}
