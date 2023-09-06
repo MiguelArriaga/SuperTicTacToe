@@ -16,30 +16,30 @@
 
 <body style="margin: auto;text-align:center;" onload="startUp();">
     <h1>Tic Tac Toe Game</h1>
-    <p style="font-size: 20px;"> Current Player: <span id="next_player" style="font-weight: bold;">X</span></p>
-    <table id="masterboard" class="masterboard">
-    </table>
-    <br>
-    <p id="winner_message" style="font-size: 20px;font-weight: bold;"></p>
-    <br>
+    <p style="font-size: 1.5em;"> Current Player: <span id="next_player" style="font-weight: bold;">X</span></p>
 
-    <button style="font-size: 20px;font-weight: bold;" onClick="window.location.reload();">New Game</button>
-    <button style="font-size: 20px;font-weight: bold;" onClick="FillTest();">FillTest</button>
-    <br>
-
-    <h3>AI:</h3>
-    <div>
-        <label for="playerXDropdown">Player X:</label>
-        <select id="playerXDropdown" data-ptype="X" onchange="changeAI(this)">
-        </select>
-    </div>
-    <div>
-        <label for="playerODropdown">Player O:</label>
-        <select id="playerODropdown" data-ptype="O" onchange="changeAI(this)">
-        </select>
+    <div class="board_container">
+        <p id="winner_message" class="winner-message"></p>
+        <table id="masterboard" class="masterboard"></table>
     </div>
 
-    <br>
+    <button onClick="window.location.reload();">New Game</button>
+    <button onClick="FillTest();">FillTest</button>
+
+    <div style="font-size: 1.2em;margin-top:1em; margin-bottom:0.5em;">
+        <div style="margin-top:1em; margin-bottom:0.5em;font-weight: bold;">AI:</div>
+        <div>
+            <label for="playerXDropdown">Player X:</label>
+            <select id="playerXDropdown" data-ptype="X" onchange="changeAI(this)">
+            </select>
+        </div>
+        <div>
+            <label for="playerODropdown">Player O:</label>
+            <select id="playerODropdown" data-ptype="O" onchange="changeAI(this)">
+            </select>
+        </div>
+    </div>
+
     <div id="ai_box">
         <br>
         <button style="font-size: 20px;font-weight: bold;" onClick="BattleAIs();">Battle AIs</button>

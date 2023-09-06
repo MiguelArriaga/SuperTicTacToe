@@ -1,3 +1,13 @@
+:root {
+    --master_w: calc(min(100vw,60vh) * 0.3);
+    --minor_w: calc(var(--master_w) * 0.3);
+  }
+
+body {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 table {
     border-collapse: collapse;
     margin: auto;
@@ -11,27 +21,56 @@ td {
 }
 
 .masterboard td {
-    width: 180px;
-    height: 180px;
-    font-size: 60px;
-}
-
-.game_over {
-    color: rgb(174, 174, 174);
+    width: var(--master_w);
+    height: var(--master_w);
+    font-size: calc(var(--master_w)*0.55);
 }
 
 .board td {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: var(--minor_w);
+    height: var(--minor_w);
+    font-size: calc(var(--minor_w)*0.75);
+}
+
+.board td:hover {
+    background-color: #eee;
+}
+
+
+.board_container {
+    position: relative;
+    margin-bottom:1em;
+  }
+
+  .winner-message {
+    position: absolute;
+    top: calc(var(--master_w)*1);
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    width: calc(var(--master_w)*3);
+    text-align: center;
+    font-size: calc(var(--master_w)*0.5);
+    /* font-size: 4em; */
+    font-weight: bold;
+    color: rgba(209, 0, 35, 0.70)
+  }
+
+
+
+.game_over {
+    color: rgb(174, 174, 174);
 }
 
 .playable {
     background-color: #d2e3ef;
 }
 
-.board td:hover {
-    background-color: #eee;
+select {
+    font-size: 1em;
+}
+button {
+    font-size: 1.1em;;
+    font-weight: bold;
 }
 
 #myProgress {
@@ -40,13 +79,13 @@ td {
 }
 
 #myBar {
-    width: 1%;
+    width: 0%;
     height: 30px;
     background-color: #04AA6D;
 }
 
 #ai_box {
-    width:20%;
+    width: calc(var(--master_w)*2);
     border:1px solid rgb(133, 133, 133);
     margin: auto;
     padding: 5px;
