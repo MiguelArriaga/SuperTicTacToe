@@ -9,3 +9,4 @@ To submit an AI follow these steps:
  2. In you file, have a function called `AI_your_ai_name_bestMove()` that returns the best next move (see `AI_random_bestMove()` for documentation)
  3. In the "AI/AI_base.js" file, add your AI to the dictionary called `AIs` as such:
     - `'your_ai_name': { 'Name': "Your AI Name", "Function": AI_your_ai_name_bestMove },`
+ 4. In `index.html` add your "AI_your_ai_name.js" file to the sources
