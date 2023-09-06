@@ -2,6 +2,7 @@ const AIs = {
     'human': { 'Name': "Human", "Function": null },
     'random': { 'Name': "Random", "Function": AI_random_bestMove },
     'francisquinho': { 'Name': "Francisquinho", "Function": AI_francisquinho_bestMove },
+    'mig': { 'Name': "Miguel", "Function": AI_mig_bestMove },
 };
 const default_AI = 'human';
 
