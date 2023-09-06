@@ -8,6 +8,10 @@ function getCellsOfBoard(board) {
     return cells
 }
 
+function playIJ(board,cell,silent=false) {
+    play(document.getElementById(`board${board}_cell${cell}`),silent=silent)
+}
+
 function play(html_cell, silent=false) {
     const curr_player = player
     // debugger;
