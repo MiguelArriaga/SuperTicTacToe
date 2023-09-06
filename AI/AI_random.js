@@ -14,45 +14,8 @@
  */
 function AI_random_bestMove(boardList, last_move_cell, curr_player) {
     // Get possible moves
-    let available_cells = AI_random_getPossibleMoves(boardList, last_move_cell)
+    let available_cells = AI_getPossibleMoves(boardList, last_move_cell)
     let rand_elem = Math.floor(Math.random() * available_cells.length);
     return available_cells[rand_elem]
 
-}
-
-function AI_random_getPossibleMoves(boardList, last_move_cell) {
-    let possible_moves = []
-    
-    // Check each small board
-    for (let board of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-        // If board is compatible with last_move
-        if (board == last_move_cell || last_move_cell == 0) {
-            // Get empty cells of that board and add them to the list of possible moves
-            let empty_cells = AI_random_getEmptyCells(boardList[board - 1])
-            for (let empty_cell of empty_cells) {
-                possible_moves.push([board, empty_cell])
-            }
-        }
-    }
-    return possible_moves
-}
-
-
-
-function AI_random_getEmptyCells(smallBoard) {
-    let empty_cells = []
-
-    // Check if board is already closed, i.e. there are no empty cells
-    if (MASTER_CLOSED_BOARD_OPTIONS.includes(smallBoard)) {
-        return empty_cells
-    }
-
-    // For each cell, check if it empty and add to list of empty cells
-    for (let cell of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-        if (smallBoard[cell - 1] == "") {
-            empty_cells.push(cell)
-        }
-    }
-
-    return empty_cells
 }
