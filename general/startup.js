@@ -70,9 +70,10 @@ function FillTest() {
     play(document.getElementById(`board9_cell2`))
     play(document.getElementById(`board2_cell3`))
     play(document.getElementById(`board3_cell9`))
-    play(document.getElementById(`board9_cell1`))
-    play(document.getElementById(`board3_cell5`))
-    play(document.getElementById(`board5_cell9`))
+    // play(document.getElementById(`board9_cell1`))
+    // play(document.getElementById(`board3_cell5`))
+    // play(document.getElementById(`board5_cell9`))
+
 
     // Tie wins ?
     // play(document.getElementById(`board1_cell1`))
