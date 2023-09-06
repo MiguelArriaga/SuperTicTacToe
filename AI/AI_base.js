@@ -85,9 +85,11 @@ function BattleAIs() {
 function populateAIs() {
     for (let ptype of ["X", "O"]) {
         let dropdown = document.getElementById(`player${ptype}Dropdown`);
+        let new_innerHTML = ""
         for (let ai in AIs) {
-            dropdown.innerHTML += `<option id="${ptype}_${ai}" value="${ai}">${AIs[ai]["Name"]}</option>\n`;
+            new_innerHTML += `<option id="${ptype}_${ai}" value="${ai}">${AIs[ai]["Name"]}</option>\n`;
         }
+        dropdown.innerHTML = new_innerHTML
         document.getElementById(`${ptype}_${default_AI}`).selected = true;
         player_AI[ptype] = default_AI;
     }
