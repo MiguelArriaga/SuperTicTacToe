@@ -16,15 +16,17 @@ function callAI(start_player) {
     let cell;
     let boardList = getMasterBoardList();
     if (ai_id != "human") {
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 5; i++) {
             [board, cell] = AIs[ai_id]["Function"](boardList, last_cell, start_player);
             var succeeded = play(document.getElementById(`board${board}_cell${cell}`), silent = true);
             if (succeeded) {
                 // console.log(`Player ${start_player} used AI=${ai_id} to play move: board${board}_cell${cell}`);
                 return;
+            } else {
+                console.log(`Player ${start_player} tired to use AI=${ai_id} to play move: board${board}_cell${cell} and failed!`);
             }
         }
-        console.log(`AI (${ai_id}) tried to play 50 times and failed! Please play manually or fix AI`);
+        console.log(`AI (${ai_id}) tried to play 5 times and failed! Please play manually or fix AI`);
     }
 }
 
