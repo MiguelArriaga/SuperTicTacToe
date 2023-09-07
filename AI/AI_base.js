@@ -76,11 +76,11 @@ function BattleAIs() {
     }
 
     if (battle_iteration == battle_games) {
-        battle_iteration = 0
-        battle_results = []
+        battle_iteration = 0;
+        battle_results = [];
     }
 
-    run_recusrsive_battle()
+    run_recusrsive_battle();
 
 }
 

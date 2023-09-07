@@ -3,6 +3,7 @@
 function startUp(popAI = true) {
     createMasterBoard();
     if (popAI) { populateAIs(); }
+
     // playIJ(1, 1)
     // playIJ(1, 3)
     // playIJ(3, 2)
@@ -38,6 +39,7 @@ function swapPlayer() {
 
 function exportBoard() {
     alert(serializeArray(getMasterBoardList()))
+    showBoard(getMasterBoardList())
 }
 
 function FillTest() {
