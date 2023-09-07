@@ -100,7 +100,7 @@ function AI_makeMove(MasterBoard_prev, move_board, move_cell, move_player) {
         }
     }
     MasterWinner = AI_getWinner(MasterBoard)
-    return MasterWinner, next_move, MasterBoard
+    return [MasterWinner, next_move, MasterBoard]
 
 }
 

@@ -12,10 +12,11 @@ const opponentFactor = { "X": 1, "O": -1 }
 function AI_mig_bestMove(MasterBoardList, last_move_cell, curr_player) {
     // Get possible moves
     let available_cells = AI_getPossibleMoves(MasterBoardList, last_move_cell)
-    scores = []
+    let scores = []
+    let NewMasterBoard = []
     for (let move of available_cells) {
-        let [MasterWinner, next_move, NewMasterBoard] = AI_makeMove(MasterBoardList,move[0],move[1],last_move_cell)
-        let newScore = AI_mig_getScore(MasterBoardList, curr_player)
+        let [MasterWinner, next_move, NewMasterBoard] = AI_makeMove(MasterBoardList,move[0],move[1],curr_player)
+        let newScore = AI_mig_getScore(NewMasterBoard, curr_player)
         scores.push(newScore)
     }
     let sortedAvailableCells = AI_sortAbyB(available_cells,scores).slice(0,branchingBreath)
